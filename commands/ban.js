@@ -27,7 +27,7 @@ module.exports = {
 
         const banEmbed = new MessageEmbed()
             .setTitle(`${target} has been banned from ${interaction.guild.name}`)
-            .setDescription(`Reason: ${reason}`)
+            .setDescription(`Reason: ${reason}`);
 
         interaction.reply({ embeds: [banEmbed] });
       }
