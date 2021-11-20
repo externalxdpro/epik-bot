@@ -36,7 +36,7 @@ module.exports = {
             }
             */
 
-            const whoisembed = new MessageEmbed()
+            const whoisEmbed = new MessageEmbed()
                 .setTitle(whoisTitle)
                 .setColor(whoisColor)
                 .setFooter(serverName)
