@@ -1,20 +1,17 @@
 const { SlashCommandBuilder } = require(`@discordjs/builders`);
+const { MessageEmbed } = require(`discord.js`);
 
 module.exports = {
     data: new SlashCommandBuilder()
         .setName(`ping`)
-        .setDescription(`Replies with pong!`),
+        .setDescription(`Replies with ping!`),
     async execute(interaction){
-        await interaction.reply(`pong!`);
-    }
-}
+        const ping = Date.now() - interaction.createdTimestamp;
 
-/*
-module.exports = {
-    name: 'ping',
-    decription: "Replies with pong",
-    execute(client, Discord, message, args){
-        message.channel.send('pong!');
+        const embed = new MessageEmbed()
+            .setTitle(`Pong!`)
+            .setDescription(`Ping: ${ping}`);
+
+        await interaction.reply({ embeds: [embed] });
     }
 }
-*/
