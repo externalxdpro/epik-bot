@@ -52,7 +52,7 @@ module.exports = {
                 //.addField('User Status:', userPresence, true)
                 //.addField('Server Booster Status:', userPremium, true)
                 .setAuthor(interaction.user.username)
-            interaction.reply({ embeds: [whoisembed] });
+            interaction.reply({ embeds: [whoisEmbed] });
         }
 
         //await interaction.reply(`Your tag: ${interaction.user.tag}\nYour id: ${interaction.user.id}`);
