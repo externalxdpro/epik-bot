@@ -1,17 +1,22 @@
 const { SlashCommandBuilder } = require(`@discordjs/builders`);
-const { MessageEmbed } = require(`discord.js`);
+const { MessageEmbed, Client } = require(`discord.js`);
 
 module.exports = {
     data: new SlashCommandBuilder()
         .setName(`ping`)
-        .setDescription(`Replies with ping!`),
-    async execute(interaction){
-        const ping = Date.now() - interaction.createdTimestamp;
-
-        const embed = new MessageEmbed()
+        .setDescription(`Replies with the ping`),
+    async execute(interaction, client){
+        const calculatingEmbed = new MessageEmbed()
             .setTitle(`Pong!`)
-            .setDescription(`Ping: ${ping}`);
+            .setDescription(`Calculating ping...`);
 
-        await interaction.reply({ embeds: [embed] });
+        await interaction.reply({ embeds: [calculatingEmbed], fetchReply: true }).then((resultMessage) => {
+            const ping = resultMessage.createdTimestamp - interaction.createdTimestamp
+
+            const pingEmbed = new MessageEmbed()
+                .setTitle(`Pong!`)
+                .setDescription(`Ping: \`${ping} ms\``)
+            resultMessage.edit({ embeds: [pingEmbed] });
+        });
     }
 }
