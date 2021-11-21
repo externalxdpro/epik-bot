@@ -21,21 +21,3 @@ module.exports = {
         });
     }
 }
-
-/*
-module.exports = {
-    name: 'clear',
-    decription: "Clears messages!",
-    async execute(client, message, args, Discord) {
-        if (!args[0]) return message.reply("PLease enter the amount of messages that you want to clear");
-        if (isNaN(args[0])) return message.reply("Please enter a number");
-
-        if (args[0] > 100) return message.reply("You can't clear more than 100 messages at once");
-        else if (args[0] <= 0) return message.reply("That number is too small. Type a number greater than 0")
-
-        await message.channel.messages.fetch({ limit: ++args[0] }).then(messages => {
-            interaction.channel.bulkDelete(messages);
-        });
-    }
-}
-*/
