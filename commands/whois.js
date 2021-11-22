@@ -11,49 +11,46 @@ module.exports = {
                 .setDescription(`The user that will get exposed`)
                 .setRequired(true)),
     async execute(interaction) {
-        if (!interaction.member.permissions.has('ADMINISTRATOR')) return interaction.reply('You don\'t have permission to use this command.');
-        else {
-            //const member = message.mentions.users.first() || message.author;
-            const target = interaction.options.getUser(`user`);
+        //const member = message.mentions.users.first() || message.author;
+        const target = interaction.options.getUser(`user`);
 
-            let whoisTitle = 'Whois';
-            let whoisDesc = `Whois ${target}`;
-            let whoisColor = 'RANDOM';
-            let serverName = interaction.guild.name;
-            let userAvatar = target.displayAvatarURL();
-            let userCreatedAt = target.createdAt;
-            //let ujoinedAt = member.joinedAt;
-            let userId = target.id;
-            /*
-            let userPresence = target.presence.status;
-            if (userPresence === "dnd") userPresence = 'Do not Disturb'
-            else if (userPresence === "idle") userPresence = 'Idle'
-            else if (userPresence === "online") userPresence = "Online"
-            else if (userPresence === "streaming") userPresence = 'Streaming'
-            let userPremium = target.premiumSince;
-            if (userPremium === `null`) {
-                userPremium = 'User is not a server booster.'
-            }
-            */
-
-            const whoisEmbed = new MessageEmbed()
-                .setTitle(whoisTitle)
-                .setColor(whoisColor)
-                .setFooter(serverName)
-                .setTimestamp()
-                .setThumbnail(userAvatar)
-                .setDescription(whoisDesc)
-                .addField('Full Username:', target.tag, true)
-                .addField('ID:', userId, true)
-                .addField('Account Creation Date:', userCreatedAt.toString(), true)
-                //.addField('Joined Server Date:', member., true)
-                //.addField('Bot:', member.bot, true)
-                //.addField('Last Message:', member.lastMessage, true)
-                //.addField('User Status:', userPresence, true)
-                //.addField('Server Booster Status:', userPremium, true)
-                .setAuthor(interaction.user.username)
-            interaction.reply({ embeds: [whoisEmbed] });
+        let whoisTitle = 'Whois';
+        let whoisDesc = `Whois ${target}`;
+        let whoisColor = 'RANDOM';
+        let serverName = interaction.guild.name;
+        let userAvatar = target.displayAvatarURL();
+        let userCreatedAt = target.createdAt;
+        //let ujoinedAt = member.joinedAt;
+        let userId = target.id;
+        /*
+        let userPresence = target.presence.status;
+        if (userPresence === "dnd") userPresence = 'Do not Disturb'
+        else if (userPresence === "idle") userPresence = 'Idle'
+        else if (userPresence === "online") userPresence = "Online"
+        else if (userPresence === "streaming") userPresence = 'Streaming'
+        let userPremium = target.premiumSince;
+        if (userPremium === `null`) {
+            userPremium = 'User is not a server booster.'
         }
+        */
+
+        const whoisEmbed = new MessageEmbed()
+            .setTitle(whoisTitle)
+            .setColor(whoisColor)
+            .setFooter(serverName)
+            .setTimestamp()
+            .setThumbnail(userAvatar)
+            .setDescription(whoisDesc)
+            .addField('Full Username:', target.tag, true)
+            .addField('ID:', userId, true)
+            .addField('Account Creation Date:', userCreatedAt.toString(), true)
+            //.addField('Joined Server Date:', member., true)
+            //.addField('Bot:', member.bot, true)
+            //.addField('Last Message:', member.lastMessage, true)
+            //.addField('User Status:', userPresence, true)
+            //.addField('Server Booster Status:', userPremium, true)
+            .setAuthor(interaction.user.username)
+        interaction.reply({ embeds: [whoisEmbed] });
 
         //await interaction.reply(`Your tag: ${interaction.user.tag}\nYour id: ${interaction.user.id}`);
     }
