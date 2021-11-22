@@ -9,10 +9,10 @@ module.exports = {
       const embed = new MessageEmbed()
             .setTitle(`Help`)
             .setDescription(`These are all of the the commands available with epik bot`)
-            .addField(`Moderation`, `ban, clear, kick, mute, unban, unmute`)
-            .addField(`Fun`, `8ball, epikrate, ghostping`)
-            .addField(`Music`, `pause, play, repeat, resume, skip, stop`)
-            .addField(`Other`, `help, ping, serverinfo, userinfo, whois`);
+            .addField(`Moderation`, `ban\nclear\nkick\nmute\nunban\nunmute`, true)
+            .addField(`Fun`, `8ball\nepikrate\nghostping`, true)
+            .addField(`Music`, `pause\nplay\nrepeat\nresume\nskip\nstop`, true)
+            .addField(`Other`, `help\nping\nserverinfo\nuserinfo\nwhois`, true);
       interaction.reply({ embeds: [embed] });
     }
 }
