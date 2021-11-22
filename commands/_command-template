@@ -8,11 +8,3 @@ module.exports = {
         
     }
 }
-
-module.exports = {
-    name: '',
-    decription: "",
-    execute(client, Discord, message, args){
-        
-    }
-}
