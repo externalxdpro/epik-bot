@@ -9,7 +9,7 @@ module.exports = {
 
         try {
             await command.execute(interaction);
-            console.log(`${interaction.user.tag} in #${interaction.channel.name} has successfully triggered an interaction.`);
+            console.log(`${interaction.user.tag} in ${interaction.guild.name}/${interaction.channel.name} has successfully triggered an interaction.`);
         }
         catch (error) {
             console.error(error);
