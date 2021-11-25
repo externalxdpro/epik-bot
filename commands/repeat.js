@@ -14,11 +14,6 @@ module.exports = {
         const onOrOff = interaction.options.getBoolean(`value`);
 
         music.repeat({ interaction: interaction, value: onOrOff });
-        if(onOrOff == true){
-            interaction.reply(`Repeat is set to "ON"`);
-        }
-        else {
-            interaction.reply(`Repeat is set to "OFF"`);
-        }
+        interaction.reply({ content: onOrOff === true ? `Repeat is set to "ON"` : `Repeat is set to "OFF"` });
     }
 }
