@@ -6,7 +6,13 @@ module.exports = {
         .setName(`pause`)
         .setDescription(`Pauses the currently playing song`),
     async execute(interaction){
-      music.pause({ interaction: interaction });
-      interaction.reply(`Paused playback`);
+      const isPaused = await music.isPaused({ interaction: interaction });
+      if (isPaused == true) {
+        interaction.reply(`Playback is already paused. Unpause with "/unpause"`);
+      }
+      else {
+        music.pause({ interaction: interaction });
+        interaction.reply(`Paused playback`);
+      }
     }
 }
