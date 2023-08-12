@@ -1,0 +1,24 @@
+#+title: README
+
+* Setting Up
+Create a file named ~config.json~ containing
+
+#+begin_src js-json
+{
+    "token": "your-token-goes-here",
+    "clientId": "your-client-id-goes-here",
+    "guildId": "your-guild-id-goes-here",
+}
+#+end_src
+
+Install dependencies (make sure to have node and npm installed)
+#+begin_src shell
+npm install
+#+end_src
+
+* Running
+Run the bot
+
+#+begin_src shell
+node .
+#+end_src
